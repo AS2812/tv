@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',  // Ensures assets are requested as /assets/...
+  base: process.env.NODE_ENV === 'production' ? '/tv/' : '/',  // GitHub Pages subdirectory
   plugins: [react()],
   resolve: {
     alias: {
