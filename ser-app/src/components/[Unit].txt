@@ -1,0 +1,13 @@
+[Unit]
+Description=Dakka Backend Service
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/path/to/new-ser-backend
+Environment="PYTHONPATH=/path/to/new-ser-backend"
+ExecStart=/usr/bin/gunicorn -w 3 -b 127.0.0.1:5001 run_server:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
